@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="testMemo.css" />
+  <script src="tools.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ name }}</p>
+    <h5>{{ message }}</h5>
+  </div>
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+  <div id="app-3">
+    <p v-if="seen">I'm alive</p>
+    <button v-on:click="judge">You can use the button to judge the text</button>
+  </div>
+  <div id="app-4">
+    <ol>
+      <li v-for="typeString in typeList">
+        {{typeString.text}}<span>-{{typeString.time}}</span>
+      </li>
+      <li>{{message}}</li>
+    </ol>
+    <input v-model="message">
+    <button v-on:click="add">You can use the button to add the text</button>
+  </div>
+  <div id="app-5">
+    <review v-bind:number="fool"></review>
+  </div>
+  <script src="testMemo.js"></script>
+</body>
+</html>
