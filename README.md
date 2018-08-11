@@ -1,2 +1,3 @@
 # TestVue
-Vue.jsの練習になります。
+00.Vuejs Resume
+x.Test Memo
