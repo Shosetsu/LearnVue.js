@@ -1,4 +1,4 @@
-body { margin: 0; padding: 25px 5%; font: 14px/22px "微软雅黑","Meiryo",Arial; color: #333; word-wrap: break-word; overflow-y: auto; overflow-x: hidden; cursor: default;}
+body { margin: 0; padding: 25px 5%; font: 14px/22px "微软雅黑","Meiryo",Arial; color: #333; word-wrap: break-word; overflow: hidden; cursor: default;}
 
 div.title-bar { width: auto; height: 60px; vertical-align: middle; border-top: 35px double blanchedalmond; text-align: center; overflow: hidden;}
 div.title-bar p { line-height: 1.5em; margin: 0;}
@@ -24,11 +24,32 @@ div.block + .block .page { position: absolute; width: 100%;}
 div.block .page>div>h3 { padding: 5px; border-bottom: 2px solid rosybrown; font-size: 20px; margin: 20px 0;}
 div.block .page>div>h3+ * { margin: 10px 0 0 25%; width: auto;}
 div.block .page>div.highlights>h3+ * { letter-spacing: 0.03em;}
+div.block .page>div.skill>h3 + div{ padding: 5px; background: burlywood; margin: 10px 0 0 15%;}
 div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-left: 18%;}
 
 .summary p:hover{ color: chocolate;}
+
 .highlights>div>ul { width: calc(50% - 40px); margin: 0; line-height: 1.7em;}
 .highlights li:hover { color: sienna;}
+
+.skill-list-box { height: 220px;}
+.skill ul { list-style-type: none; margin: 3px; padding: 0; line-height: 2em;}
+.skill ul.left-block { width: 35%;}
+.skill ul:not(.left-block) { width: 62%;}
+.skill ul.left-block li { padding: 6px 5px; cursor: pointer; height: 30px;}
+.skill ul:not(.left-block) li { height: 30px; padding: 6px 25px;}
+.skill li:not(:last-child) { border-bottom: 1px solid #9e9e9e50;}
+.skill li:nth-child(odd),.skill ul:not(.left-block) li:nth-child(even) { background-color: beige;}
+.skill li:nth-child(even),.skill ul:not(.left-block) li:nth-child(odd) { background-color: bisque;}
+.skill ul.left-block li:hover { background-color: darksalmon;}
+.skill ul.left-block li .percent { height: 30px; padding: 0; margin: 0; word-wrap: normal; position: relative;}
+.skill ul.left-block li .percent span { padding: 3px 20px;}
+
+.skill-list-enter-active { transition: all 1s; opacity: 1;}
+.skill-list-enter { opacity: 0; transform: translateY(-15px);}
+.skill-list-leave-to { opacity: 0;}
+.skill-list-keyword-enter-active { transition: all 1s; opacity: 1;}
+.skill-list-keyword-enter,.skill-list-keyword-leave-to { opacity: 0;}
 
 .experience .case { padding-bottom: 1em;}
 .experience .case:hover{ color: chocolate;}
@@ -59,5 +80,5 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-le
 div.work { height: calc(100% - 180px); margin-bottom: 70px;}
 iframe { margin: 0; border: 0; width: 100%; height: 100%;}
 
-.left-block { float: left; display: inline-block;}
+.left-block { /*float: left;*/ display: inline-block;}
 .left-block + * { float: right; display: inline-block;}
