@@ -38,29 +38,27 @@
 					<h3>{{skill.title}}</h3>
 					<div>
 						<div class="skill-list-box">
-							<transition-group name="skill-list" tag="ul" class="left-block">
+							<transition-group name="skill-list" tag="ul" class="process left-block">
 								<li v-if="skill.target" @click="setTarget()" :key="'back'">
 									<div class="percent"><span>Back to Menu</span></div>
 								</li>
 								<li v-for="(skillValue, skillKey, index) in targetSkillListLeft" :key="skillKey" @click="!skill.target?setTarget(skillKey):setShowTarget(skillKey)">
-									<div>
-										<div v-if="index%2!==0" class="percent" :style="{width:skillValue.level+'%','background-color': 'rgba(205, 220, 57,0.'+skillValue.level*8+')'}">
-											<span>
-												{{skillKey}}
-											</span>
-										</div>
-										<div v-else class="percent" :style="{width:skillValue.level+'%','background-color': 'rgba(0, 188, 212,0.'+skillValue.level*8+')'}">
-											<span>
-												{{skillKey}}
-											</span>
-										</div>
+									<div v-if="index%2!==0" class="percent" :style="{width:skillValue.level+'%','background-color': 'rgba(205, 220, 57,0.'+skillValue.level*8+')'}">
+										<span>
+											{{skillKey}}
+										</span>
+									</div>
+									<div v-else class="percent" :style="{width:skillValue.level+'%','background-color': 'rgba(0, 188, 212,0.'+skillValue.level*8+')'}">
+										<span>
+											{{skillKey}}
+										</span>
 									</div>
 								</li>
 								<li v-if="!skill.target" @click="changeSort()" :key="'sort'">
 									<div class="percent"><span>Sort Mode: {{!skill.sort?'Default':skill.sort}}</span></div>
 								</li>
 							</transition-group>
-							<transition-group name="skill-list-keyword" tag="ul">
+							<transition-group name="skill-list-keyword" tag="ul" class="process">
 								<li v-for="(keywordValue, keywordKey, index) in targetSkillListRight"
 									:key="keywordValue">{{keywordValue}}
 								</li>

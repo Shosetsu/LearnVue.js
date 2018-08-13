@@ -36,18 +36,6 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-le
 .highlights li:hover { color: sienna;}
 
 .skill-list-box { height: 220px;}
-.skill ul { list-style-type: none; margin: 3px; padding: 0; line-height: 2em; user-select: none; touch-callout: none;}
-.skill ul.left-block { width: 35%;}
-.skill ul:not(.left-block) { width: 62%;}
-.skill ul.left-block li { padding: 6px 5px; cursor: pointer; height: 30px;}
-.skill ul:not(.left-block) li { height: 30px; padding: 6px 25px;}
-.skill li:not(:last-child) { border-bottom: 1px solid #9e9e9e50;}
-.skill li:nth-child(odd),.skill ul:not(.left-block) li:nth-child(even) { background-color: beige;}
-.skill li:nth-child(even),.skill ul:not(.left-block) li:nth-child(odd) { background-color: bisque;}
-.skill ul.left-block li:hover { background-color: darksalmon;}
-.skill ul.left-block li .percent { height: 30px; padding: 0; margin: 0; word-wrap: normal; position: relative;}
-.skill ul.left-block li .percent span { padding: 3px 20px;}
-
 .skill-list-enter-active { transition: all 1s; opacity: 1;}
 .skill-list-enter { opacity: 0; transform: translateY(-15px);}
 .skill-list-leave-to { opacity: 0;}
@@ -73,7 +61,5 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-le
 .work div button { background-color: antiquewhite; padding: 5px; position: relative; border: 3px outset sienna; border-radius: 500px; color: #333; cursor: pointer; margin-left: -90px; margin-top: 5px; float: left; width: 75px;}
 .work div button:hover {opacity: 0.8; border: bisque ridge;}
 .work div button:hover ~ * {color:initial; }
-
-div.work { height: calc(100% - 180px); margin-bottom: 70px;}
 
 .block + .block:hover ~ .footer { right: initial; left: 30px;}

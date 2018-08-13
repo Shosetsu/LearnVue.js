@@ -9,10 +9,34 @@
 <body class="plr5">
     <div id="content">
     	<div class="menu">
-			<div class="menu-button">
-				<button @click="changeTarget('menu')" :class="{'non-target':lastTarget!='menu'}">M</button>
-			</div>
-			<div class="menu-content" v-show="lastTarget=='menu'">
+			<button @click="changeTarget('menu')" :class="{'non-target':lastTarget!='menu'}">M</button>
+			<div class="content" v-show="lastTarget=='menu'">
+				<button @click="changeDestiny()">C</button>
+				<button @click="reDestiny()">R</button>
+				<button @click="judgeDestiny()">J</button>
+				<ul class="process">
+					<li>
+						<div class="percent" :style="{width:HP *2 +'%','background-color': 'rgba(205, 188, 182, '+ HP*0.2+')'}">
+							<span>
+								HP:{{HP}}/{{MaxHP}}
+							</span>
+						</div>
+					</li>
+					<li>
+						<div class="percent" :style="{width:LP *2 +'%','background-color': 'rgba(175, 208, 172, '+ LP*0.2+')'}">
+							<span>
+								LP:{{LP}}/{{MaxLP}}
+							</span>
+						</div>
+					</li>
+					<li v-for="(value, key) in states" :key="key">
+						<div class="percent" :style="{width:value *4 +'%','background-color': 'rgba(0, 188, 212, '+ value*0.4+')'}">
+							<span>
+								{{key}}:{{value}}
+							</span>
+						</div>
+					</li>
+				</ul>
 				
 			</div>
 		</div>
