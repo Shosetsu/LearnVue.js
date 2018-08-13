@@ -1,0 +1,40 @@
+body { margin: 0; font: 14px/22px "微软雅黑","Meiryo",Arial; color: #333; word-wrap: break-word; cursor: default;}
+body.plr5 { padding: 25px 5%;}
+
+button { cursor: pointer;}
+a { color: inherit; text-decoration: none; cursor: pointer;}
+a:hover { color: blueviolet;}
+
+.buttons { width: 100%; display: inline-block;}
+.buttons a { text-decoration: none; border: 2px dotted; border-radius: 8px; border-color: darkgreen; padding: 5px 10px; float: right; cursor: pointer;}
+.buttons a.previous { background-color: antiquewhite; color: #333;}
+.buttons a.next { background-color: burlywood; color: snow;}
+.buttons a + a { margin-right: 10px;}
+.buttons a:hover { opacity: 0.8;}
+
+div iframe { margin: 0; border: 0; width: 100%; height: 100%;}
+
+.left-block { /*float: left;*/ display: inline-block;}
+.left-block + * { float: right; display: inline-block;}
+
+.footer { font-size: 0.8em; -webkit-text-stroke: 1px antiquewhite; position: absolute; right: 30px; bottom: 20px;}
+
+.menu-content {
+    position: relative;
+    border: 5px solid darkblue;
+    width: 240px;
+    height: 490px;
+    background: aliceblue;
+}
+.menu-button button {
+    width: 32px;
+    height: 32px;
+    border-radius: 36px;
+    margin: 5px;
+    background: aquamarine;
+    border: 2px outset cornflowerblue;
+    position: absolute;
+	z-index: 10;
+}
+.menu-button button.non-target { border-color: crimson; background-color: seashell;}
+.menu-button button:hover { border-style: inset;}

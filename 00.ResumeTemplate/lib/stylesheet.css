@@ -1,4 +1,4 @@
-body { margin: 0; padding: 25px 5%; font: 14px/22px "微软雅黑","Meiryo",Arial; color: #333; word-wrap: break-word; overflow: hidden; cursor: default;}
+body { overflow: hidden;}
 
 div.title-bar { width: auto; height: 60px; vertical-align: middle; border-top: 35px double blanchedalmond; text-align: center; overflow: hidden;}
 div.title-bar p { line-height: 1.5em; margin: 0;}
@@ -6,10 +6,13 @@ div.title-bar p.name { font-size: 36px; margin-left: -100px;}
 div.title-bar p.name span:last-child { color: brown;}
 div.title-bar div.info { margin: -40px 0 0 100px; text-align: left; position: relative; left: 50%; width: calc(50% - 100px);}
 div.title-bar div.info span { white-space: pre; display: block;}
-div.title-bar div.info a.repository { float: right; margin-top: -40px;}
-
-a { color: inherit; text-decoration: none; cursor: pointer;}
-a:hover { color: blueviolet;}
+div.title-bar div.info a.repository { float: right; margin-top: -40px; border: 2px solid white; padding: 2px; height:  32px; border-radius:  32px;}
+div.title-bar div.info a.repository span {display: none; font-size: 0.8em; -webkit-text-stroke: 1px antiquewhite;}
+div.title-bar:not(:hover) div.info a.repository svg { display: none;}
+div.title-bar:not(:hover) div.info a.repository span { display: inline-block; }
+div.title-bar:hover div.info a.repository { border-color: beige;}
+div.title-bar div.info:hover a.repository { border-color: cornflowerblue;}
+div.title-bar div.info a.repository:hover { border-color: red;}
 
 div.block { width: calc(45% - 10px); height: calc(100% - 145px); padding-right: 10px; position: absolute; top: 120px;}
 div.block + .block { margin-left: 45%; padding-left: 10px; padding-right: 0px;}
@@ -33,7 +36,7 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-le
 .highlights li:hover { color: sienna;}
 
 .skill-list-box { height: 220px;}
-.skill ul { list-style-type: none; margin: 3px; padding: 0; line-height: 2em;}
+.skill ul { list-style-type: none; margin: 3px; padding: 0; line-height: 2em; user-select: none; touch-callout: none;}
 .skill ul.left-block { width: 35%;}
 .skill ul:not(.left-block) { width: 62%;}
 .skill ul.left-block li { padding: 6px 5px; cursor: pointer; height: 30px;}
@@ -60,25 +63,17 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ * { margin-le
 .experience .case .something>ul>li:not(:first-child) { padding: 8px 0;}
 .experience .case:hover .something>ul>li{ opacity: 0.7;}
 .experience .case .something>ul>li:hover{ opacity: 1;}
+.experience .case h5 span { padding-left: 15px;}
 
 .work div:hover{ color: chocolate;}
 .work div * { margin: 0; letter-spacing: 0em;}
 .work div .keyword { margin: 0.5em 15px 1em; font-size: 0.95em;}
 .work div .keyword:hover { color: blueviolet;}
 .work div .detail { padding-left: 5px; font-size: 0.97em; line-height: 1.2em;}
-.work div button { background-color: antiquewhite; padding: 5px; position: relative; border: 3px outset sienna; border-radius: 500px; color: black; cursor: pointer; margin-left: -90px; margin-top: 5px; float: left; width: 75px;}
+.work div button { background-color: antiquewhite; padding: 5px; position: relative; border: 3px outset sienna; border-radius: 500px; color: #333; cursor: pointer; margin-left: -90px; margin-top: 5px; float: left; width: 75px;}
 .work div button:hover {opacity: 0.8; border: bisque ridge;}
 .work div button:hover ~ * {color:initial; }
 
-.buttons { width: 100%; display: inline-block;}
-.buttons a { text-decoration: none; border: 2px dotted; border-radius: 8px; border-color: darkgreen; padding: 5px 10px; float: right; cursor: pointer;}
-.buttons a.previous { background-color: antiquewhite; color: black;}
-.buttons a.next { background-color: burlywood; color: snow;}
-.buttons a + a { margin-right: 10px;}
-.buttons a:hover { opacity: 0.8;}
-
 div.work { height: calc(100% - 180px); margin-bottom: 70px;}
-iframe { margin: 0; border: 0; width: 100%; height: 100%;}
 
-.left-block { /*float: left;*/ display: inline-block;}
-.left-block + * { float: right; display: inline-block;}
+.block + .block:hover ~ .footer { right: initial; left: 30px;}
