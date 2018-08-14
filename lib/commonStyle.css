@@ -26,11 +26,10 @@ div iframe { margin: 0; border: 0; width: 100%; height: 100%;}
 .menu .content { position: relative; border: 5px solid darkblue; width: 240px; height: 490px; background: aliceblue; border-radius: 10px; padding: 6px; padding-top: 32px;}
 .menu .content button { top: -37px; position: relative; margin-left: 30px;}
 .menu .content button + button { margin-left: -4px;}
-.menu .content textarea { height: 150px; width: 230px; white-space: pre-line; overflow: hidden;}
-
+.menu .content textarea { height: 150px; width: 230px; white-space: pre-line; overflow: hidden; padding: 1px 4px;}
 .status-bar-move { opacity: 0; transition: all 1s; }
 
-ul.process { list-style-type: none; margin: 3px; padding: 0; line-height: 2em; user-select: none; touch-callout: none; word-wrap: normal;}
+ul.process { list-style-type: none; margin: 3px; padding: 0; line-height: 2em; user-select: none; touch-callout: none; word-wrap: normal; overflow-x: hidden;}
 ul.process.left-block { width: 35%;}
 ul.process.left-block + ul.process { width: 62%;}
 ul.process li:not(:last-child) { border-bottom: 1px solid #9e9e9e50;}

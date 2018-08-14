@@ -1,10 +1,11 @@
 const vaildStatus = (status)=>status>25?25:status<0?0:status;
 const vaildSubStatus = (status,max)=>status<0?0:status>max?max:status;
 const syncData = ()=>{
-	localStorage["lastTarget"] = vmApi._data.lastTarget;
-	localStorage["baseStates"] = JSON.stringify(vmApi._data.status.baseStates);
-	localStorage["HP"] = vmApi._data.status.HP;
-	localStorage["LP"] = vmApi._data.status.LP;
+	localStorage["lastTarget"] = vmApi.$data.lastTarget;
+	localStorage["baseStates"] = JSON.stringify(vmApi.$data.status.baseStates);
+	localStorage["HP"] = vmApi.$data.status.HP;
+	localStorage["LP"] = vmApi.$data.status.LP;
+	localStorage["enemyLevel"] = vmApi.$data.enemyLevel;
 }
 const defalutStates = ['STR','VIT','DEX','INT','WIS','CHA'];
 const sessionCheck = ()=>{
@@ -27,9 +28,9 @@ const reStatus = (states) =>{
 	states.HP=20;
 	states.LP=0;
 }
-const logicCheck = (data = vmApi._data)=>{
+const logicCheck = (data = vmApi.$data)=>{
 	if(data.status.baseStates.VIT<3||data.status.HP==0){
-		vmApi.writeLog("--!You are dead!--", false);
+		vmApi.writeLog("--!You Are Dead!--", false);
 		return reStatus(data.status);
 	}
 	for(key in data.status.baseStates){
@@ -55,12 +56,18 @@ var vmApi= new Vue({
 	data: function(){
 		return {
 			lastTarget: localStorage["lastTarget"],
+			log: '',
 			status:{
 				baseStates:JSON.parse(localStorage["baseStates"]),
 				HP:JSON.parse(localStorage["HP"]),
-				LP:JSON.parse(localStorage["LP"]),
-				enemyLevel:JSON.parse(localStorage["enemyLevel"])
-			}
+				LP:JSON.parse(localStorage["LP"])
+			},
+			visableStatus:{
+				baseStates:JSON.parse(localStorage["baseStates"]),
+				HP:JSON.parse(localStorage["HP"]),
+				LP:JSON.parse(localStorage["LP"])
+			},
+			enemyLevel:JSON.parse(localStorage["enemyLevel"])
 		}
 	},
 	beforeMount: function(){
@@ -79,14 +86,14 @@ var vmApi= new Vue({
 			this.lastTarget=this.lastTarget===target?'':target;
 		},
 		changeDestiny: function(){
-			this.writeLog("for Destiny");
+			this.writeLog("for Destiny", false);
 			for(status in this.status.baseStates){
 				let oldData = this.status.baseStates[status];
 				this.status.baseStates[status] = vaildStatus(this.status.baseStates[status]+Math.round((Math.random()-0.5)*5));
 				let newData = this.status.baseStates[status];
 				this.writeLog(status+":\t"+oldData+"\-\>"+newData+"\t("+(newData-oldData)+")");
 			}
-			this.status.HP = vaildSubStatus(this.status.HP,this.MaxHP)
+			this.status.HP = vaildSubStatus(this.status.HP,this.MaxHP);
 			this.status.LP = vaildSubStatus(Math.round(this.status.LP + Math.random()*3),this.MaxLP);
 		},
 		reDestiny:function(){
@@ -96,7 +103,7 @@ var vmApi= new Vue({
 			this.HP=20;
 		},
 		judgeDestiny: function(){
-			this.writeLog("You get an enemy at level "+this.enemyLevel);
+			this.writeLog("---Judge---",false);
 			this.status;
 		},
 		writeLog: function(log,type="1"){
@@ -116,6 +123,16 @@ var vmApi= new Vue({
 		openBar: function(type){
 
 		}
+	},
+	watch:{
+		'status.HP': function(newValue,oldValue){ TweenLite.to(this.$data.visableStatus, 1, { 'HP': vaildSubStatus(newValue,this.MaxHP) });},
+		'status.LP': function(newValue,oldValue){ TweenLite.to(this.$data.visableStatus, 1, { 'LP': vaildSubStatus(newValue,this.MaxLP) });},
+		'status.baseStates.STR': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'STR': newValue });},
+		'status.baseStates.VIT': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'VIT': newValue });},
+		'status.baseStates.DEX': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'DEX': newValue });},
+		'status.baseStates.INT': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'INT': newValue });},
+		'status.baseStates.WIS': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'WIS': newValue });},
+		'status.baseStates.CHA': function(newValue){ TweenLite.to(this.$data.visableStatus.baseStates, 1, { 'CHA': newValue });}
 	}
 });
 setInterval(logicCheck,300);

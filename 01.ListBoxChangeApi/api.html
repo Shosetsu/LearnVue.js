@@ -5,6 +5,7 @@
 <title>ListBox Change Api</title>
 <link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
 <script src="../lib/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 </head>
 <body class="plr5">
     <div id="content">
@@ -15,29 +16,33 @@
 				<button @click="reDestiny()">R</button>
 				<button @click="judgeDestiny()">J</button>
 				<button @click="openBar('skill')">S</button>
-				<transition-group name="status-bar" tag="ul" class="process">
+				<ul class="process">
 					<li key="HP">
-						<div class="percent" :style="{width:status.HP * 100 / MaxHP +'%','background-color': 'rgba(205, 188, 182, '+(status.HP / MaxHP /2+0.5)+')'}">
-							<span>
-								HP:{{status.HP}}/{{MaxHP}}
-							</span>
-						</div>
+						<transition name="status-bar" :duration="500">
+							<div class="percent" :style="{width:visableStatus.HP * 100 / MaxHP +'%','background-color': 'rgba(205, 188, 182, '+(visableStatus.HP / MaxHP /2+0.5)+')'}">
+								<span>
+									HP:{{visableStatus.HP.toFixed(0)}}/{{MaxHP}}
+								</span>
+							</div>
+						</transition>
 					</li>
 					<li key="LP">
-						<div class="percent" :style="{width:status.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 208, 172, '+(status.LP / MaxLP /2+0.5)+')'}">
-							<span>
-								LP:{{status.LP}}/{{MaxLP}}
-							</span>
-						</div>
+						<transition name="status-bar" :duration="500">
+							<div class="percent" :style="{width:visableStatus.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 208, 172, '+(visableStatus.LP / MaxLP /2+0.5)+')'}">
+								<span>
+									LP:{{visableStatus.LP.toFixed(0)}}/{{MaxLP}}
+								</span>
+							</div>
+						</transition>
 					</li>
-					<li v-for="(value, key) in status.baseStates" :key="key">
+					<li v-for="(value, key) in visableStatus.baseStates" :key="key" v-if="key!='_gsTweenID'">
 						<div class="percent" :style="{width:value *4 +'%','background-color': 'rgba(0, 188, 212, '+ value*0.4+')'}">
 							<span>
-								{{key}}:{{value}}
+								{{key}}:{{value.toFixed(0)}}
 							</span>
 						</div>
 					</li>
-				</transition-group>
+				</ul>
 				<div>Log Template
 					<textarea rows="100" readonly="readOnly" disabled="disabled" v-html="log"></textarea>
 				</div>
