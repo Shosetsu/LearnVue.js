@@ -14,30 +14,33 @@
 				<button @click="changeDestiny()">C</button>
 				<button @click="reDestiny()">R</button>
 				<button @click="judgeDestiny()">J</button>
-				<ul class="process">
-					<li>
-						<div class="percent" :style="{width:HP *2 +'%','background-color': 'rgba(205, 188, 182, '+ HP*0.2+')'}">
+				<button @click="openBar('skill')">S</button>
+				<transition-group name="status-bar" tag="ul" class="process">
+					<li key="HP">
+						<div class="percent" :style="{width:status.HP * 100 / MaxHP +'%','background-color': 'rgba(205, 188, 182, '+(status.HP / MaxHP /2+0.5)+')'}">
 							<span>
-								HP:{{HP}}/{{MaxHP}}
+								HP:{{status.HP}}/{{MaxHP}}
 							</span>
 						</div>
 					</li>
-					<li>
-						<div class="percent" :style="{width:LP *2 +'%','background-color': 'rgba(175, 208, 172, '+ LP*0.2+')'}">
+					<li key="LP">
+						<div class="percent" :style="{width:status.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 208, 172, '+(status.LP / MaxLP /2+0.5)+')'}">
 							<span>
-								LP:{{LP}}/{{MaxLP}}
+								LP:{{status.LP}}/{{MaxLP}}
 							</span>
 						</div>
 					</li>
-					<li v-for="(value, key) in states" :key="key">
+					<li v-for="(value, key) in status.baseStates" :key="key">
 						<div class="percent" :style="{width:value *4 +'%','background-color': 'rgba(0, 188, 212, '+ value*0.4+')'}">
 							<span>
 								{{key}}:{{value}}
 							</span>
 						</div>
 					</li>
-				</ul>
-				
+				</transition-group>
+				<div>Log Template
+					<textarea rows="100" readonly="readOnly" disabled="disabled" v-html="log"></textarea>
+				</div>
 			</div>
 		</div>
 		<div class="footer">This page made with Vue.js</div>
