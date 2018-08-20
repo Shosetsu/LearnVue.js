@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 Input Sample</title>
+<link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
+<script src="../lib/vue.js"></script>
+</head>
+<body class="plr5">
+	<div id="main-box">
+		<div class="sample">
+			<textarea v-model="box1"></textarea>
+			<span v-html="box1"></span>
+		</div>
+		<div class="sample">
+			<textarea v-model="box2"></textarea>
+			<span v-html="box2"></span>
+		</div>
+	</div>
+</body>
+<script src="process.js"></script>
+</html>
