@@ -8,15 +8,17 @@
 </head>
 <body class="plr5">
 	<div id="main-box">
-		<div class="sample">
-			<textarea v-model="box1"></textarea>
-			<span v-html="box1"></span>
+		<div class="control-bar">
+			<button @click="contents.push('')">Add</button>
+			<button @click="contents.splice(contents.length-1)">Remove</button>
 		</div>
-		<div class="sample">
-			<textarea v-model="box2"></textarea>
-			<span v-html="box2"></span>
+		<div v-for="(box,index) in contents" class="sample">
+			<textarea v-model="contents[index]"></textarea>
+			<span v-html="contents[index]"></span>
 		</div>
 	</div>
 </body>
+<footer>
 <script src="process.js"></script>
+</footer>
 </html>
