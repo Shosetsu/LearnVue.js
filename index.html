@@ -2,16 +2,28 @@
 <html>
 <head>
   <title>Work List</title>
-  <script src="lib/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/commonStyle.css">
 </head>
 <body>
-  <div>
-    not completed.
+  <div id="work-list">
+    <h3>Work List</h3>
     <ul>
       <li><a href="00.ResumeTemplate/Resume.html">00.ResumeTemplate</a></li>
       <li><a href="01.ListBoxChangeApi/api.html">01.ListBoxChangeApi</a></li>
-      <li><a href="x.TestMemo/testMemo.html">x.TestMemo</a></li>
+      <li><a href="02.WhatIsTheInputItem/sample.html">02.WhatIsTheInputItem</a></li>
+      <li><a href="03.TrySimulatorApi/simulator.html">03.TrySimulatorApi</a></li>
+      <li><a href="04.CardAnimation/card.html">04.CardAnimation</a></li>
+      <li><a href="99.TestMemo/testMemo.html">99.TestMemo</a></li>
     </ul>
   </div>
 </body>
+<footer>
+  <script type="text/javascript">
+    document.querySelectorAll("li").forEach((item)=>{
+      item.addEventListener("click",function(){
+        this.childNodes[0].click();
+      });
+    });
+  </script>
+</footer>
 </html>
