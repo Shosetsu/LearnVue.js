@@ -5,6 +5,8 @@
 <title>HTML5 Input Sample</title>
 <link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
 <script src="../lib/vue.js"></script>
+<script src="../lib/tools.js"></script>
+<script src="../lib/layout.js"></script>
 </head>
 <body class="plr5">
 	<div id="main-box">
@@ -12,7 +14,7 @@
 			<button @click="contents.push('')">Add</button>
 			<button @click="contents.splice(contents.length-1)">Remove</button>
 		</div>
-		<div v-for="(box,index) in contents" class="sample">
+		<div v-for="(box,index) in contents" class="sample inline">
 			<textarea v-model="contents[index]"></textarea>
 			<span v-html="contents[index]"></span>
 		</div>

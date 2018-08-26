@@ -6,6 +6,8 @@
 <link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
 <script src="../lib/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+<script src="../lib/tools.js"></script>
+<script src="../lib/layout.js"></script>
 </head>
 <body class="plr5">
     <div id="content">
@@ -18,7 +20,7 @@
 				<button @click="openBar('skill')">S</button>
 				<ul class="process">
 					<li key="HP">
-						<transition name="status-bar" :duration="500">
+						<transition name="status-percent" :duration="500">
 							<div class="percent" :style="{width:visableStatus.HP * 100 / MaxHP +'%','background-color': 'rgba(205, 188, 182, '+(visableStatus.HP / MaxHP /2+0.5)+')'}">
 								<span>
 									HP:{{visableStatus.HP.toFixed(0)}}/{{MaxHP}}
@@ -27,7 +29,7 @@
 						</transition>
 					</li>
 					<li key="LP">
-						<transition name="status-bar" :duration="500">
+						<transition name="status-percent" :duration="500">
 							<div class="percent" :style="{width:visableStatus.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 208, 172, '+(visableStatus.LP / MaxLP /2+0.5)+')'}">
 								<span>
 									LP:{{visableStatus.LP.toFixed(0)}}/{{MaxLP}}

@@ -277,22 +277,13 @@
 		}*/]
 	};
 	document.title="[Your Name]'s " + document.title;
-	let openLink = (repositoryName,linkType)=>{
-				if(linkType&&linkType.toLowerCase()==="github"){
-					return window.open("https://github.com/Shosetsu/"+repositoryName,"github");
-				}else if(typeof(repositoryName)==="string"){
-					return window.open(repositoryName);
-				}else{
-					return window.open("https://github.com/Shosetsu/","github");
-				}
-			};
 	var title = new Vue({
 		el: '.title-bar',
 		data: function() {
 				return {
 				firstName:'First',
 				lastName:'Last',
-				telephone:'(+00) 1234-5678-90',
+				telephone:'(+00) 12-3456-7890',
 				mailAdress:'template@template.com',
 				githubLink:'github.com/Shosetsu/'  //<= replace it!
 			}
@@ -314,22 +305,21 @@
 		computed: {
 			targetSkillListLeft: function () {
 				if(!this.skill.target){
-					return this.sortList(this.skill.skills,this.skill.sort);
+					return sortObjectList(this.skill.skills,'level',this.skill.sort);
 				}else{
 					let list = {};
 					for (obj in this.skill.skills[this.skill.target]){
 						if(obj=="level") continue;
 						list[obj]=this.skill.skills[this.skill.target][obj];
 					}
-					return this.sortList(list,this.skill.sort);
+					return sortObjectList(list,'level',this.skill.sort);
 				}
 			},
 			targetSkillListRight: function () {
-				if(!this.skill.showTarget){
-					return ['...'];
-				}else{
+				if(this.skill.showTarget){
 					return this.skill.skills[this.skill.target][this.skill.showTarget].keywords;
 				}
+				return ['...'];
 			}
 		},
 		methods:{
@@ -341,28 +331,6 @@
 			setShowTarget: function(showTarget){
 				this.skill.showTarget = showTarget;
 			},
-			sortList: function(skills,sortConfig){
-				if(!sortConfig)return skills;
-				let levels = [];
-				let newlist = {};
-				for(let key in skills){
-					levels.push(skills[key]["level"]);
-				}
-				if(sortConfig.toLowerCase()==="desc"){
-					levels.sort(((a,b)=> a<b));
-				}else if (sortConfig.toLowerCase()==="asc"){
-					levels.sort(((a,b)=> a>b));
-				}
-				levels.forEach(function(level){
-					for(let key in skills){
-						if(level==skills[key]["level"]){
-							newlist[key]=skills[key];
-							break;
-						}
-					}
-				});
-				return newlist;
-			},
 			changeSort: function(){
 				this.skill.sort = !this.skill.sort?'Desc':(this.skill.sort.toLowerCase()==="desc")?'Asc':'';
 			}
@@ -372,5 +340,5 @@
 if(window.innerHeight<800||window.innerWidth<1366){
 	alert("Please open this in a large window");
 	document.body.style.height='800px';
-	document.body.style.overflowY='scroll';
+	document.body.style.overflowY='auto';
 }
