@@ -17,7 +17,8 @@
 				<button @click="changeDestiny()">C</button>
 				<button @click="reDestiny()">R</button>
 				<button @click="judgeDestiny()">J</button>
-				<button @click="openBar('skill')">S</button>
+				<button @click="saveData()">S</button>
+				<button onclick="loadSaveData()">L</button>
 				<ul class="process">
 					<li key="HP">
 						<transition name="status-percent" :duration="500">
@@ -46,11 +47,10 @@
 					</li>
 				</ul>
 				<div>Log Template
-					<textarea rows="100" readonly="readOnly" disabled="disabled" v-html="log"></textarea>
+					<textarea id="log" rows="100" readonly="readOnly" disabled="disabled" v-model="log"></textarea>
 				</div>
 			</div>
 		</div>
-		<div class="footer">This page made with Vue.js</div>
 	</div>
 </body>
 <script src="lib/main.js"></script>
