@@ -96,7 +96,8 @@ const sessionCheck = ()=>{
 		return false;
 	}
 	for(key of defalutStates){
-		if(!sessionStorage[key] || sessionStorage[key]>25 || sessionStorage[key]<0 )
+		let dataKey = sessionStorage[key]&&parseInt(sessionStorage[key]);
+		if(dataKey!=0&&!dataKey || dataKey>25 || dataKey<0)
 			return false;
 	}
 	writeLog("Data check...Pass!");
