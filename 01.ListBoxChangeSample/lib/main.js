@@ -3,7 +3,7 @@ const vaildStatus = (status)=>status>25?25:status<0?0:status;
 const vaildSubStatus = (status,max)=>status<0?0:status>max?max:status;
 const setLog = (log)=>{
 	if(!vmApp){
-		document.querySelector("#log").value = log;
+		getDom("#log").value = log;
 	}else{
 		Vue.set(vmApp,"log",log);
 	}
@@ -14,18 +14,18 @@ const writeLog = (log,type = true)=>{
 	}else{
 		let logTemp = '';
 		if(!vmApp){
-			logTemp =  document.querySelector("#log").value;
+			logTemp = getDom("#log").value;
 		}else{
 			logTemp = vmApp.$data.log;
 		}
-		let logList = document.querySelector("#log").value.split('\n');
+		let logList = getDom("#log").value.split('\n');
 		if(logList.length>60){
 			logTemp = '';
 			logList.slice(0,25).forEach((a)=>logTemp+=a);
 		}
 		setLog(logTemp+log+"\n");
 	}
-	document.querySelector("#log").scrollTop=document.querySelector("#log").scrollHeight;
+	getDom("#log").scrollTop=getDom("#log").scrollHeight;
 }
 const reStatus = (states) =>{
 	for(let key of defalutStates){
@@ -93,12 +93,15 @@ const loadSaveData = ()=>{
 
 const sessionCheck = ()=>{
 	if(!sessionStorage["HP"]||!sessionStorage["LP"]){
+		writeLog("Data check...Error");
 		return false;
 	}
 	for(key of defalutStates){
 		let dataKey = sessionStorage[key]&&parseInt(sessionStorage[key]);
-		if(dataKey!=0&&!dataKey || dataKey>25 || dataKey<0)
+		if(dataKey!=0&&!dataKey || dataKey>25 || dataKey<0){
+			writeLog("Data check...Error");
 			return false;
+		}
 	}
 	writeLog("Data check...Pass!");
 	return true;
@@ -108,7 +111,6 @@ var vmApp= new Vue({
 	el:'#content',
 	beforeCreate: function(){
 		if(!sessionCheck()){
-			writeLog("Data check...Error");
 			if(!initSessionData()){
 				sessionStorage["STR"]=10;
 				sessionStorage["VIT"]=10;
