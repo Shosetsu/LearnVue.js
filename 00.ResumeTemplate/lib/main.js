@@ -260,12 +260,30 @@
 		}
 		]
 	};
+	let edu = {
+		type:'edu',
+		title:'Education',
+		edus:[
+		{
+			key:0,
+			collage:'[Your University]',
+			degree:'[Degree]',
+			major:'[Research Interests]'
+		},
+		{
+			key:1,
+			collage:'[Your University]',
+			degree:'[Degree]',
+			major:'[Research Interests]'
+		}
+		]
+	};
 	let pages = {
 		target:0,
 		page : [{
 			index:0,
-			visible:{experience:[0,1]},
-			contents:[experience]
+			visible:{experience:[0,1],edu:[0,2]},
+			contents:[edu,experience]
 		},{
 			index:1,
 			visible:{experience:[1,2],work:[0,1]},

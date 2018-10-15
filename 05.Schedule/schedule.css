@@ -1,0 +1,14 @@
+body { margin: 0; font: 14px/22px 微软雅黑; color: #333; word-wrap: break-word; cursor: default;}
+html, .container { height: 100%;}
+body.plr5 { height: calc(100% - 50px);}
+.title-bar { background-color: antiquewhite;}
+.container div.today {
+    background-color: bisque;
+    height: calc(100% - 42px);
+    margin: 10px 0;
+    width: 40%;
+    display: inline-block;
+    float: left;
+}
+li.schedule button{
+}
