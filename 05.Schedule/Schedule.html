@@ -13,9 +13,9 @@
 </head>
 <body class="plr5">
 	<div class="container">
-		<div class="title-bar"><strong>今天是{{year}}年{{month}}月{{day}}日！{{nextJudge?"距离下次结算日还有"+getElapsedDate(time,nextJudge)+"天！":""}}</strong></div>
+		<div class="title-bar"><strong>今天是{{year}}年{{month}}月{{day}}日！{{nextJudge?"距离下次结算日还有"+getElapsedDate(nextJudge,time)+"天！":""}}</strong></div>
 		<div class="today">
-			<ul>
+			<ul class="large">
 				<li class="schedule">
 					<strong>☆今天的计划1☆</strong>
 					<span>学习高数，看教材书，至少需要时间1小时。</span>
@@ -24,12 +24,21 @@
 					<div class="right buttons">
 						<button @click="">开始学习</button>
 						<button @click="">暂停学习</button>
-						<button @click="" :disabled="isCleared(cureentTime,60*60*1000)">停止学习</button>
+						<button @click="" v-show="isCleared(cureentTime,60*60)">停止学习</button>
 					</div>
 				</li>
 			</ul>
 		</div>
-		<vue-datepicker-local v-model="selectTime"></vue-datepicker-local>
+		<div>
+			<ul class="more-large">
+				<li class="schedule">
+					切换日程日期<vue-datepicker-local v-model="selectTime"></vue-datepicker-local>
+				</li>
+				<li class="schedule">
+					设定结算日日期<vue-datepicker-local v-model="nextJudge"></vue-datepicker-local>
+				</li>
+			</ul>
+		</div>
 	</div>
 </body>
 <footer>

@@ -10,5 +10,13 @@ body.plr5 { height: calc(100% - 50px);}
     display: inline-block;
     float: left;
 }
+.container div.today + div {
+    background-color: azure;
+    height: calc(100% - 42px);
+    margin: 10px 0;
+    width: 59%;
+    display: inline-block;
+    float: right;
+}
 li.schedule button{
 }
