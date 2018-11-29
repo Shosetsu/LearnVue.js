@@ -11,7 +11,7 @@ body.inline, div.inline { display: inline-block;}
 .navi-bar button { word-wrap: normal; width: 12%; height: 100%; padding: 20px; background-color: #f5f5dcdd; border: none; display: inline-block; cursor: pointer; border-left: 1px solid #f5f5dcff; border-right: 1px solid #f5f5dcff;}
 .navi-bar button:hover { background-color: cornsilk; color: inherit;}
 
-#work-list { text-align: center; padding: 20px; margin: auto; width: 300px; font-size: 1.2em;}
+#work-list { text-align: center; padding: 20px; margin: auto; width: 350px; font-size: 1.2em;}
 #work-list ul { list-style: none; margin: 20px; padding: 0;}
 #work-list li { padding: 5px; border: 2px solid snow; background-color: antiquewhite; border-radius: 15px; cursor: pointer;}
 #work-list li:not(:first-child) { border-top: none;}
@@ -59,8 +59,10 @@ textarea { resize: none;}
 .menu .content textarea { height: 150px; width: 230px; white-space: pre-line; overflow: hidden; padding: 1px 4px;}
 .status-percent-move { opacity: 0; transition: all 1s; }
 
-ul { list-style-type: none; margin: 20px; padding: 0; line-height: 2em; overflow-x: hidden;}
-ul li { height: 100px; background-color: #ffffff60;}
+ul { list-style-type: none; margin: 0; padding: 15px; line-height: 2em; overflow: hidden;}
+ul li { background-color: #ffffff60; padding: 10px}
+ul.large li { height: 100px; }
+ul.more-large li { height: 175px; }
 ul li:not(:last-child) { border-bottom: 1px solid #9e9e9e50;}
 ul:not(.no-hover) li:hover { background-color: #ffffffdd;} 
 

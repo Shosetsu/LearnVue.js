@@ -22,7 +22,7 @@
 				<ul class="process">
 					<li key="HP">
 						<transition name="status-percent" :duration="500">
-							<div class="percent" :style="{width:visableStatus.HP * 100 / MaxHP +'%','background-color': 'rgba(205, 188, 182, '+(visableStatus.HP / MaxHP /2+0.5)+')'}">
+							<div class="percent" :style="{width:visableStatus.HP * 100 / MaxHP +'%','background-color': 'rgba(255, 188, 182, '+(visableStatus.HP / MaxHP /2+0.2)+')'}">
 								<span>
 									HP:{{visableStatus.HP.toFixed(0)}}/{{MaxHP}}
 								</span>
@@ -31,7 +31,7 @@
 					</li>
 					<li key="LP">
 						<transition name="status-percent" :duration="500">
-							<div class="percent" :style="{width:visableStatus.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 208, 172, '+(visableStatus.LP / MaxLP /2+0.5)+')'}">
+							<div class="percent" :style="{width:visableStatus.LP * 100 / MaxLP +'%','background-color': 'rgba(175, 255, 172, '+(visableStatus.LP / MaxLP /2+0.2)+')'}">
 								<span>
 									LP:{{visableStatus.LP.toFixed(0)}}/{{MaxLP}}
 								</span>
@@ -39,7 +39,7 @@
 						</transition>
 					</li>
 					<li v-for="(value, key) in visableStatus.baseStates" :key="key" v-if="key!='_gsTweenID'">
-						<div class="percent" :style="{width:value *4 +'%','background-color': 'rgba(0, 188, 212, '+ value*0.4+')'}">
+						<div class="percent" :style="{width:value *4 +'%','background-color': 'rgba(90, 120, 240, '+ (value/50 + 0.5)+')'}">
 							<span>
 								{{key}}:{{value.toFixed(0)}}
 							</span>

@@ -28,7 +28,7 @@ var vmApp = new Vue({
 
 		},
 		isCleared: function(timeA,timeB){
-			return timeA>timeB;
+			return timeA>=timeB;
 		}
 	},
 	updated: function(){
