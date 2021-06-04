@@ -5,7 +5,7 @@ div.mid {
 }
 
 div.mid p {
-    background-color: #fffafa85;
+    text-shadow: 0.02em 0.05em 0.05em #ff5722af;
 }
 
 canvas#qrcode {
