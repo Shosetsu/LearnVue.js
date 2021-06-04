@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>QR Reader(PC)</title>
+	<title>QR Reader</title>
 	<link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="../lib/vue.js"></script>
@@ -16,7 +16,10 @@
 <body class="plr5">
 	<div class="main-box bg1">
 		<div class="mid">
-			<p>Paste(Ctrl + V) Your QR Code.</p>
+			<p>
+				Paste(Ctrl + V) Your QR Code.<br>
+				Or Update This... <input type="file" id="fileUp">
+			</p>
 			<canvas id="qrcode" height="200" width="200"></canvas>
 			<p id="resultArea" hidden>Result: <a id="link" target="_blank"><span id="result"></span></a></p>
 		</div>
