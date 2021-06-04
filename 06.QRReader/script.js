@@ -1,11 +1,18 @@
 var qrCanvas = document.querySelector("#qrcode");
+var qrLink = document.querySelector("#link");
+
 qrcode.callback = () => {
     if (!qrcode.result.startsWith("error ")) {
         document.querySelector("#result").innerHTML = qrcode.result;
+        if (qrcode.result.indexOf("://")) {
+            qrLink.removeAttribute("disabled");
+            qrLink.href = qrcode.result;
+        }
     } else {
         document.querySelector("#result").innerHTML = "Cannot read this capture.";
     }
 };
+
 document.addEventListener('paste', (event) => {
     let capture = event.clipboardData.items[0];
     if (capture.type.indexOf("image") != -1) {
@@ -13,6 +20,7 @@ document.addEventListener('paste', (event) => {
         img.src = URL.createObjectURL(capture.getAsFile());
 
         document.querySelector("#result").innerHTML = "Reading...";
+        qrLink.setAttribute("disabled", true);
 
         setTimeout(() => {
             qrCanvas.width = img.width;
@@ -25,6 +33,10 @@ document.addEventListener('paste', (event) => {
             document.querySelector("#resultArea").removeAttribute("hidden");
             if (result) {
                 document.querySelector("#result").innerHTML = result.data;
+                if (result.data.indexOf("://")) {
+                    qrLink.removeAttribute("disabled");
+                    qrLink.href = result.data;
+                }
             } else {
                 //try other
                 qrcode.decode(img.src);
