@@ -1,11 +1,11 @@
 body { margin: 0; font: 14px/22px Arial,Meiryo; color: #333; word-wrap: break-word; cursor: default;}
-body.plr5 { padding: 25px 5%;}
+body.plr5 { padding: 25px 5%; padding-top: 5rem;}
 body.sample > div, div.sample { border: 3px double salmon; padding: 5px 10px; margin-top: 20px; margin-right: 20px; border-radius: 10px;}
 body.inline, div.inline { display: inline-block;}
 
 .title-bar {text-align: center; font-size: 1.5em; padding: 10px 1em;}
 
-.navi-bar-box > .navi-bar { height: 125px; width: 80%; padding: 0 10%; position: absolute; background-color: #cddc39c0; top: 0px; left: 0px; z-index: 100; background: linear-gradient(#cddc39a0, #cddc39db 30%, #aadc50e0 50%, #50afafd0); transition: 1s all;}
+.navi-bar-box > .navi-bar { height: 125px; width: 80%; padding: 0 10%; position: absolute; background-color: #cddc39c0; top: 0px; left: 0px; z-index: 100; background: linear-gradient(#ffffff, #e7eac1db 30%, #dfecc6e0 50%, #7fdddd); transition: 1s all;}
 .navi-bar-box > .navi-bar.disabled { transition: all 1s; opacity: 0; transform: translateY(-125px); z-index: -1;}
 
 .navi-bar button { word-wrap: normal; width: 12%; height: 100%; padding: 20px; background-color: #f5f5dcdd; border: none; display: inline-block; cursor: pointer; border-left: 1px solid #f5f5dcff; border-right: 1px solid #f5f5dcff;}
