@@ -16,4 +16,6 @@ the Work List
 
 05.Schedule
 
+06.QR Reader
+
 99.Test Memo
