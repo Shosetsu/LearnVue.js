@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>QR Reader(PC)</title>
+	<link rel="stylesheet" type="text/css" href="../lib/commonStyle.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="../lib/vue.js"></script>
+	<script src="../lib/tools.js"></script>
+	<script src="../lib/layout.js"></script>
+	<script src="./qrcode.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
+</head>
+
+<body class="plr5">
+	<div class="main-box bg1">
+		<div class="mid">
+			<p>Paste(Ctrl + V) Your QR Code.</p>
+			<canvas id="qrcode" height="200" width="200"></canvas>
+			<p id="resultArea" hidden>Result: <span id="result"></span></p>
+		</div>
+	</div>
+</body>
+<footer>
+	<script src="script.js?"></script>
+</footer>
+
+</html>

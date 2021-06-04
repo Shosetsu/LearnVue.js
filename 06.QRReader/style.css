@@ -1,0 +1,17 @@
+div.mid {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+div.mid p {
+    background-color: #fffafa85;
+}
+
+canvas#qrcode {
+    margin: auto;
+    display: block;
+    padding: 0.2em;
+    border: 0.3em #8bc34a solid;
+    border-radius: 5%;
+}
