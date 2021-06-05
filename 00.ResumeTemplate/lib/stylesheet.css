@@ -1,4 +1,4 @@
-body { overflow: hidden;}
+/*body { overflow: hidden;}*/
 
 div.title-bar { width: auto; height: 60px; vertical-align: middle; border-top: 35px double blanchedalmond; text-align: center; overflow: hidden;}
 div.title-bar p { line-height: 1.5em; margin: 0;}
@@ -35,7 +35,7 @@ div.block .page>div.experience>h3+ *, div.block .page>div.work>h3+ *, div.block 
 .highlights>div>ul { width: calc(50% - 40px); margin: 0; line-height: 1.7em;}
 .highlights li:hover { color: sienna;}
 
-.skill-list-box { height: 220px;}
+ /*.skill-list-box {height: 220px;}*/
 .skill-list-enter-active { transition: all 1s; opacity: 1;}
 .skill-list-enter { opacity: 0; transform: translateY(-15px);}
 .skill-list-leave-to { opacity: 0;}
